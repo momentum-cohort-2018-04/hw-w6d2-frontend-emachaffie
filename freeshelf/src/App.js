@@ -18,6 +18,12 @@ class App extends Component {
     }
   }
 
+  expandOrCollapse () {
+    $('.expandedBookDiv').removeClass('hidden')
+    $('.expandedBookDiv').addClass('expanded')
+    $('#expandButton').html('Show Less')
+  }
+
   // expandBookInfo () {
   // add or subtract class hidden on click AND change 'read more' to 'show less'
   // }
@@ -28,12 +34,12 @@ class App extends Component {
         <h1>Read About Coding So You Can Read Code</h1>
         {books.map((book, i) => (
           <div key={i} className='bookDiv'>
+            {/* If key.value='', assign value 'Unavailable' */}
             <h3>{book.title}</h3>
             <p><strong>Author:</strong> {book.author}</p>
             <p><strong>About this book:</strong> {book.shortDescription}</p>
             <img src={book.coverImageUrl} />
-            {/* wrap below in <a> tag? */}
-            <button type='button' className='showMoreOrLess'>Show more</button>
+            <button type='button' id='expandButton' className='showMoreOrLess' onClick={this.expandOrCollapse}>Show more</button>
             <div className='expandedBookDiv hidden'>
               <p><a href={book.url}>Find this book on the web</a></p>
               <p><strong>Publisher:</strong> {book.publisher}</p>
@@ -47,12 +53,5 @@ class App extends Component {
     )
   }
 }
-
-// event listener on showMoreOrLess, on click run expandBookInfo
-$('.showMoreOrLess').on('click', (e) => {
-  e.preventDefault()
-  $('.expandedBookDiv').removeClass('hidden')
-})
-// document.getElementByClassId('showMoreOrLess')addEventListener.onClick(expandBookInfo())
 
 export default App
