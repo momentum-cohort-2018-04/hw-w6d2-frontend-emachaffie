@@ -6,13 +6,6 @@ import books from './books.json'
 import $ from 'jquery'
 window.$ = $
 
-// event listener on showMoreOrLess, on click run expandBookInfo
-$('.showMoreOrLess').on('click', (e) => {
-  e.preventDefault()
-  $('button').removeClass('hidden')
-})
-// document.getElementByClassId('showMoreOrLess')addEventListener.onClick(expandBookInfo())
-
 class App extends Component {
   constructor (props) {
     super(props)
@@ -54,5 +47,12 @@ class App extends Component {
     )
   }
 }
+
+// event listener on showMoreOrLess, on click run expandBookInfo
+$('.showMoreOrLess').on('click', (e) => {
+  e.preventDefault()
+  $('.expandedBookDiv').removeClass('hidden')
+})
+// document.getElementByClassId('showMoreOrLess')addEventListener.onClick(expandBookInfo())
 
 export default App
