@@ -3,15 +3,31 @@ import logo from './logo.svg'
 import './App.css'
 import Book from './Book'
 import books from './books.json'
+import $ from 'jquery'
+window.$ = $
+
+// event listener on showMoreOrLess, on click run expandBookInfo
+$('.showMoreOrLess').on('click', (e) => {
+  e.preventDefault()
+  $('button').removeClass('hidden')
+})
+// document.getElementByClassId('showMoreOrLess')addEventListener.onClick(expandBookInfo())
 
 class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
       bookInfoExpanded: false,
-      books: books
+      books: books,
+      expandedBooks: []
+      // array of books that has index of expanded books
+      // look to see if index of book is in that array
     }
   }
+
+  // expandBookInfo () {
+  // add or subtract class hidden on click AND change 'read more' to 'show less'
+  // }
 
   render () {
     return (
@@ -20,16 +36,16 @@ class App extends Component {
         {books.map((book, i) => (
           <div key={i} className='bookDiv'>
             <h3>{book.title}</h3>
-            <p>Author: {book.author}</p>
-            <p>About this book: {book.shortDescription}</p>
+            <p><strong>Author:</strong> {book.author}</p>
+            <p><strong>About this book:</strong> {book.shortDescription}</p>
             <img src={book.coverImageUrl} />
             {/* wrap below in <a> tag? */}
-            <p className='readMoreOrLess'>Read more</p>
-            <div className='expandedBookDiv'>
-              <p><a href src={book.url} /></p>
-              <p>Publisher: {book.publisher}</p>
-              <p>Published {book.publicationDate}</p>
-              <p>In more detail: {book.detailedDescription}</p>
+            <button type='button' className='showMoreOrLess'>Show more</button>
+            <div className='expandedBookDiv hidden'>
+              <p><a href={book.url}>Find this book on the web</a></p>
+              <p><strong>Publisher:</strong> {book.publisher}</p>
+              <p><strong>Published</strong> {book.publicationDate}</p>
+              <p>{book.detailedDescription}</p>
             </div>
           </div>
         ))}
