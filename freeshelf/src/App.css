@@ -1,3 +1,20 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 20px 50px;
+}
+
+img {
+  max-width: 150px;
+}
+
+.bookDiv {
+  margin: 0 0 50px 0;
+}
+
+/* Old Stuff That Was Auto-Generated */
 .App {
   text-align: center;
 }
