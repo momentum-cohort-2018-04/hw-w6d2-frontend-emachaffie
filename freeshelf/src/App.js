@@ -19,16 +19,16 @@ class App extends Component {
   }
 
   expandOrCollapse () {
-    if ($('.expandedBookDiv') // contains class 'hidden'  ) {
-    $('.expandedBookDiv').removeClass('hidden')
-    $('.expandedBookDiv').addClass('expanded')
-    $('#expandButton').html('Show Less')
-  } else { $('.expandedBookDiv').removeClass('expanded')
-  $('.expandedBookDiv').addClass('hidden')
-  $('#expandButton').html('Show more')
-
+    if ($('.expandedBookDiv').hasClass('hidden')) {
+      $('.expandedBookDiv').removeClass('hidden')
+      $('.expandedBookDiv').addClass('expanded')
+      $('#expandButton').html('Show Less')
+    } else {
+      $('.expandedBookDiv').removeClass('expanded')
+      $('.expandedBookDiv').addClass('hidden')
+      $('#expandButton').html('Show more')
+    }
   }
-}
 
   // expandBookInfo () {
   // add or subtract class hidden on click AND change 'read more' to 'show less'
