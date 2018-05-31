@@ -12,10 +12,33 @@ img {
 
 .bookDiv {
   margin: 0 0 50px 0;
+  padding-bottom: 250px;
+  clear: both;
 }
 
 .hidden {
   display: none;
+}
+
+.shortBookDiv, .expandedBookDiv {
+  float: right;
+  max-width: 70%;
+  margin-right: 30px;
+}
+
+.bookImg {
+  float: left;
+  max-width: 20%;
+}
+
+#expandButton {
+  display: block;
+  padding: 5px;
+  margin: 5px 0;
+  border-radius: 3px;
+  box-shadow: 2px 2px 3px #F1F1F1;
+  font-weight: 700;
+  background-color: #F4F4F4;
 }
 
 /* Old Stuff That Was Auto-Generated */

@@ -18,21 +18,18 @@ class App extends Component {
     }
   }
 
-  expandOrCollapse () {
+  expandOrCollapse (i) {
     if ($('.expandedBookDiv').hasClass('hidden')) {
       $('.expandedBookDiv').removeClass('hidden')
       $('.expandedBookDiv').addClass('expanded')
       $('#expandButton').html('Show Less')
+      // this.expandedBooks.concat(i)
     } else {
       $('.expandedBookDiv').removeClass('expanded')
       $('.expandedBookDiv').addClass('hidden')
-      $('#expandButton').html('Show more')
+      $('#expandButton').html('Show More')
     }
   }
-
-  // expandBookInfo () {
-  // add or subtract class hidden on click AND change 'read more' to 'show less'
-  // }
 
   render () {
     return (
@@ -40,12 +37,18 @@ class App extends Component {
         <h1>Read About Coding So You Can Read Code</h1>
         {books.map((book, i) => (
           <div key={i} className='bookDiv'>
-            {/* If key.value='', assign value 'Unavailable' */}
-            <h3>{book.title}</h3>
-            <p><strong>Author:</strong> {book.author}</p>
-            <p><strong>About this book:</strong> {book.shortDescription}</p>
-            <img src={book.coverImageUrl} />
-            <button type='button' id='expandButton' className='showMoreOrLess' onClick={this.expandOrCollapse}>Show more</button>
+            {/* if (key.value == '') {
+
+            }  */}
+            <div className='shortBookDiv'>
+              <h3>{book.title}</h3>
+              <p><strong>Author:</strong> {book.author}</p>
+              <p><strong>About this book:</strong> {book.shortDescription}</p>
+              <button type='button' id='expandButton' className='showMoreOrLess' onClick={this.expandOrCollapse}>Show more</button>
+            </div>
+            <div className='bookImg'>
+              <img src={book.coverImageUrl} />
+            </div>
             <div className='expandedBookDiv hidden'>
               <p><a href={book.url}>Find this book on the web</a></p>
               <p><strong>Publisher:</strong> {book.publisher}</p>
